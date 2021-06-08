@@ -18,9 +18,11 @@ from django.urls import path
 
 from projectTypes.views import type_list
 from projectResponsibles.views import responsible_list
+from Links.views import links_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('projects/types/view/', type_list),
-    path('projects/responsibles/view/', responsible_list)
+    path('projects/responsibles/view/', responsible_list),
+    path('links/view/', links_view),
 ]

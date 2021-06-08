@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'projectTypes',
     'projectResponsibles',
     'Projects',
+    'Links',
 ]
 
 MIDDLEWARE = [
