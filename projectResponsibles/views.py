@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 # Create your views here.
 from .models import ProjectResponsible
+from .forms import ResponsibleForm
 
 def responsible_list(request):
     responsible_list = ProjectResponsible.objects.all()
@@ -16,3 +17,25 @@ def responsible_detail(request, pk):
         'responsible': responsible,
     }
     return render(request, "projectResponsibles/responsible.html", context)
+
+
+def responsible_create(request):
+    form = ResponsibleForm()
+
+    if request.method == 'POST':
+        form = ResponsibleForm(request.POST)
+
+        if form.is_valid():
+            new_name = form.cleaned_data["full_name"]
+            new_email = form.cleaned_data["email"]
+
+            ProjectResponsible.objects.create(
+                full_name=new_name,
+                email=new_email,
+            )
+            return redirect('/projects/responsibles/')
+
+    context = {
+        "form": form,
+    }
+    return render(request, "projectResponsibles/responsible_create.html", context)
