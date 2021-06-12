@@ -7,8 +7,13 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Here are the details for </h2>
-    {{ responsible.full_name }} : {{ responsible.email }}
+    <h2>Update the details for {{ responsible.full_name }}</h2>
+    <hr>
+    <form action="." method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update the record</button>
+    </form>
     <br><hr>
     <a href="/projects/responsibles/">Back to the list</a>
 </body>

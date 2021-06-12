@@ -25,5 +25,5 @@ urlpatterns = [
     path('projects/types/view/', type_list),
     path('links/view/', links_view),
     # pointing to new apps
-    path('projects/responsibles/', include('projectResponsibles.urls', namespace='projectResponsibles')),
+    path('projects/responsibles/',include('projectResponsibles.urls', namespace='projectResponsibles')),
 ]
