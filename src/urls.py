@@ -16,14 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from projectTypes.views import type_list
-from projectResponsibles.views import responsible_list
+# from projectTypes.views import type_list
+# from projectResponsibles.views import responsible_list
 from Links.views import links_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('projects/types/view/', type_list),
+    # path('projects/types/view/', type_list),
     path('links/view/', links_view),
     # pointing to new apps
     path('projects/responsibles/',include('projectResponsibles.urls', namespace='projectResponsibles')),
+    path('projects/types/',include('projectTypes.urls', namespace='projectTypes')),
 ]
